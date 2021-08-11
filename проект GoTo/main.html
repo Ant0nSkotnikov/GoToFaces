@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Photos</title>
+    <script src="react.production.min.js"></script>
+    <script src="react-dom.production.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="main.css">
+
+    <script src="babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class Camp extends React.Component{
+            render(){
+                return <div className="camp" style={{backgroundImage: `url(${this.props.photo})`}} >
+                    <div className="line">
+                        <a href="index.html" className="name">{this.props.camp}</a>
+                    </div>
+                </div>
+            }
+        }
+
+        class List extends React.Component{
+            constructor(props){
+                super(props)
+                this.state = {
+                    camps: [["Лето 2021 смена 2", "https://img5.goodfon.ru/original/1366x768/6/ff/koshki-kotiata-luzhaika-tsvety-para-parochka-dva-duet-koteno.jpg"], ["Лето 2021 смена 1", "https://www.nastol.com.ua/download.php?img=202004/1280x800/nastol.com.ua-395929.jpg"]]
+                }
+            }
+
+            render(){
+                let camps = []
+
+                for (var i in this.state.camps){
+                    camps.push(<Camp camp={this.state.camps[i][0]} photo={this.state.camps[i][1]}/>)
+                }
+
+                return <div className="all">
+                    <h1 className="title">GoTo в лицах</h1>
+                    <div className="camps">{camps}</div>
+                </div>
+            }
+        }
+
+        ReactDOM.render(
+            <List/>,
+            document.getElementById('root')
+        );
+    </script>
+
+</body>
+
+</html>

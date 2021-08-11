@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Members</title>
+    <script src="react.production.min.js"></script>
+    <script src="react-dom.production.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src="babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class Person extends React.Component{
+            render(){
+                return <div className="person">
+                    <img src={this.props.photo} className="photo"/>
+                    <div><strong><u>{this.props.name}</u></strong></div>
+                </div>
+            }
+        }
+
+
+        class Inf extends React.Component{
+            render(){
+                return <div class="inform"><strong>{this.props.name}</strong>{this.props.text}</div>
+            }
+        }
+
+
+        class Orgs extends React.Component{
+            render(){
+                return <div className="card">
+                    <Person
+                        name={this.props.name}
+                        photo={this.props.photo}
+                    />
+                    <div className="information">
+                        <Inf name="Telegram: " text={this.props.telegram}/>
+                        <Inf name="Специализация: " text={this.props.specialization}/>
+                        <Inf name="Смены: " text={this.props.camp}/>
+                    </div>
+                </div>
+            }
+        }
+
+
+        class Members extends React.Component{
+            render(){
+                return <div className="card">
+                    <Person
+                        name={this.props.name}
+                        photo={this.props.photo}
+                    />
+                    <div className="information">
+                        <Inf name="Telegram: " text={this.props.telegram}/>
+                        <Inf name="Домик: " text={this.props.house}/>
+                        <Inf name="Смены: " text={this.props.camp}/>
+                    </div>
+                </div>
+            }
+        }
+
+
+        class List extends React.Component{
+            constructor(props){
+                super(props)
+                this.state = {
+                    camp: "Лето 2021 смена 2",
+                    listOrgs: [{id: 12, name: "Ильина Алёна", photo: "https://im0-tub-ru.yandex.net/i?id=0855beedee265d35a34c6556264d32ef&n=13", telegram: "Алёна", specialization: "директор GoTo", camp: "описать все невозможно"}],
+                    listMembers: [
+                        {id: 12, name: "Баркевич Полина", photo: "https://stihi.ru/pics/2021/01/23/1043.jpg", telegram: "Пингвин Лепи", house: 13, camp: "лето 2020 смена 1, лето 2021 смена 2"},
+                        {id: 12, name: "Жукова Алиса", photo: "https://im0-tub-ru.yandex.net/i?id=4b22bba5983d30fa9bf2b358f0ce4193&n=13", telegram: "Алиса Жукова", house: 13, camp: "лето 2020 смена 1, лето 2021 смена 2"},
+                        {id: 12, name: "Журавлёва-Емельянено Агата", photo: "https://sun9-36.userapi.com/Z0jrvyWutdqzsCGwZSzI1Wki6T7IeISwT8v6FA/gDv79XRZooI.jpg", telegram: "Агата неКристи", house: 14, camp: "лето 2020 смена 2, лето 2021 смена 2"},
+                        {id: 12, name: "Нгуен Кат Тиен Виолетта", photo: "https://im0-tub-ru.yandex.net/i?id=d34c1c4e3deaa99babc6548335e4ef86&n=13", telegram: "Виолетта", house: 14, camp: "лето 2021 смена 2"},
+                        {id: 12, name: "Плотникова Таисия", photo: "https://im0-tub-ru.yandex.net/i?id=80a587205e153743e275a25262d3f2da&n=13", telegram: "taisiaa", house: 14, camp: "лето 2021 смена 2"}
+                    ],
+                }
+            }
+
+            componentDidMount() {
+                fetch("https://api.example.com/items")
+                    .then(res => res.json())
+                    .then(
+                        (result) => {
+                            this.setState({
+                                isLoaded: true,
+                                items: result.items
+                            });
+                        },
+                        (error) => {
+                            this.setState({
+                                isLoaded: true,
+                                error
+                            });
+                     }
+                )
+              }
+
+            render(){
+                var orgs = []
+                for (var i in this.state.listOrgs){
+                    let x = this.state.listOrgs[i]
+                    orgs.push(<Orgs
+                        id = {x.id}
+                        name = {x.name}
+                        photo = {x.photo}
+                        telegram = {x.telegram}
+                        specialization = {x.specialization}
+                        camp = {x.camp}
+                    />)
+                }
+                var members = []
+                for (var i in this.state.listMembers){
+                    let x = this.state.listMembers[i]
+                    members.push(<Members
+                        id = {x.id}
+                        name = {x.name}
+                        photo = {x.photo}
+                        telegram = {x.telegram}
+                        house = {x.house}
+                        camp = {x.camp}
+                    />)
+                }
+                return <div className="page">
+                    <div className="hrefs">
+                        <a className="back" href="main.html">Назад</a>
+                        <a className="photos" href="photos.html">Фото смены</a>
+                    </div>
+                    <h1 className="camp">{this.state.camp}</h1>
+                    <h2 className="title">Преподаватели</h2>
+                    <div className="listcards">
+                        {orgs}
+                    </div>
+                    <h2 className="title">Участники</h2>
+                    <div className="listcards">
+                        {members}
+                    </div>
+                 </div>
+            }
+        }
+
+        ReactDOM.render(
+            <List/>,
+            document.getElementById('root')
+        );
+    </script>
+
+</body>
+
+</html>

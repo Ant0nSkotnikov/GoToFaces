@@ -1,0 +1,66 @@
+.page{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hrefs{
+    width: 100%;
+}
+
+.back{
+    position: relative;
+    left: 20px;
+}
+
+.photos{
+    position: absolute;
+    right: 20px;
+}
+
+.listcards{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.camp{
+}
+
+.title{
+}
+
+.card{
+    display: flex;
+    width: 365px;
+    border: 2px solid black;
+    border-radius: 13px;
+    margin: 7px;
+}
+
+.inform{
+    margin: 3px;
+}
+
+.person{
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.information{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 3px;
+    border-left: 2px dotted black;
+}
+
+.photo{
+    height: 125px;
+    width: 125px;
+    border-radius: 7px;
+}
