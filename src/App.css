@@ -1,0 +1,143 @@
+body{
+    background-image: url("bg-img.jpeg");
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+}
+
+
+
+
+
+.returning{
+    position: relative;
+    left: 40px;
+}
+
+.photos{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 5px;
+}
+
+.photo{
+    height: 150px;
+    margin: 3px;
+    border-radius: 5px;
+}
+
+
+
+
+.page{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hrefs{
+    width: 100%;
+}
+
+.back{
+    color: midnightblue;
+    position: relative;
+    left: 20px;
+}
+
+.campphotos{
+    color: midnightblue;
+    position: absolute;
+    right: 20px;
+}
+
+.listcards{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.camp{
+}
+
+.title{
+}
+
+.card{
+    background-color: white;
+    display: flex;
+    width: 365px;
+    border: 2px solid rgba(207, 185, 255, 1);
+    border-radius: 13px;
+    margin: 7px;
+}
+
+.inform{
+    margin: 3px;
+}
+
+.person{
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.information{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 3px;
+    border-left: 2px dotted black;
+}
+
+.personalphoto{
+    height: 125px;
+    width: 125px;
+    border-radius: 7px;
+}
+
+
+
+
+
+
+
+.all{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.title1{
+}
+
+.camps{
+}
+
+.thiscamp{
+    border-radius: 15px;
+    height: 200px;
+    width: 300px;
+    background-size: 100%;
+    margin: 8px;
+}
+.line{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 150px;
+    border-radius: 0px 0px 15px 15px;
+    background-color: rgba(0, 0, 0, 0.6);
+    height: 50px;
+    width: 100%;
+}
+
+.name{
+    color: white;
+}
